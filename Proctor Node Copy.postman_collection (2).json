@@ -1,0 +1,3150 @@
+{
+	"info": {
+		"_postman_id": "726b5cb9-e6d5-4610-9476-fd49a460110a",
+		"name": "Proctor Node Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20328735"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json();\r",
+									"pm.environment.set(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "joemax55555@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base Url}}/auth/login",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_name",
+									"value": "asc",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "smsugumar5@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "asc",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "58151",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/auth/register",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base Url}}/auth/me",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/auth/roles",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"auth",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/auth/logout",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "smsugumar5@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/auth/forgot-password",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "smsugumar5@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "otp",
+									"value": "951517",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/auth/change-password",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organisation",
+			"item": [
+				{
+					"name": "Dashboard",
+					"item": [
+						{
+							"name": "Session Stats",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/session-stats",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"session-stats"
+									],
+									"query": [
+										{
+											"key": "daterange[]",
+											"value": "2020-01-01",
+											"disabled": true
+										},
+										{
+											"key": "daterange[]",
+											"value": "2020-01-25",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Exam",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/exams?status=requested&serial_number=6",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"exams"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "requested"
+										},
+										{
+											"key": "serial_number",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/exams/1",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"exams",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "exam_name",
+											"value": "ascasc",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "featured_image",
+											"type": "file",
+											"src": "/Volumes/MyDisk/Work/Samples/Sample-Image.jpg",
+											"disabled": true
+										},
+										{
+											"key": "secure_browsing_id",
+											"value": "[1,2]",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/exams",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"exams"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Exam",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/allexams?query=asc",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"allexams"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/users?user_name=Jo",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "smsugumar5@gmail.com",
+											"disabled": true
+										},
+										{
+											"key": "user_name",
+											"value": "Jo"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/2/users/1",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"2",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Proctors",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/allproctors",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"allproctors"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/students",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"students"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "4",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "smsugumar5@gmail.com",
+											"disabled": true
+										},
+										{
+											"key": "fullname",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/students/3",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"students",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Students",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/allstudents?query=Jo",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"allstudents"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "Jo"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Session",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/sessions?can_paginate=false",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "checks completed",
+											"disabled": true
+										},
+										{
+											"key": "fullname",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "exam_name",
+											"value": "test",
+											"disabled": true
+										},
+										{
+											"key": "serial_number",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "can_paginate",
+											"value": "false"
+										},
+										{
+											"key": "year",
+											"value": "2020",
+											"disabled": true
+										},
+										{
+											"key": "month",
+											"value": "11",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/sessions/MdjNRiRVm1NZOUevPh0W",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"sessions",
+										"MdjNRiRVm1NZOUevPh0W"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "organisation_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "student_id",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "exam_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "exam_date_time",
+											"value": "2019-08-12 17:50:00",
+											"type": "text"
+										},
+										{
+											"key": "exam_duration",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "can_upload_attachment",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "web_camera",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "fullview_camera",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "screenshare",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "fullview_camera",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "second_id_card",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "live_proctoring",
+											"value": "0",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/sessions",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"sessions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "End Session",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/end-sessions/MdjNRiRVm1NZOUevPh0W",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"end-sessions",
+										"MdjNRiRVm1NZOUevPh0W"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Sessions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/allsessions",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"allsessions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Bulk Sessions",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/sugumar/Downloads/Bulk-upload-sample.xlsx"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/bulk-sessions",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"bulk-sessions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Or Update Passcode",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"passcode\": [\n        {\n            \"id\": 1,\n            \"passcode\": \"asccs\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/add-passcode/MdjNRiRVm1NZOUevPh0W",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"add-passcode",
+										"MdjNRiRVm1NZOUevPh0W"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Institution",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/institutions?id=3",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"institutions"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/institutions/1",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"institutions",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ExamCalender",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/exam-calenders?page=1",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"exam-calenders"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exam Availability",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/exam-availability",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"exam-availability"
+									],
+									"query": [
+										{
+											"key": "calender_for",
+											"value": "m",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Exam Availability",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/exam-availability/43",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"exam-availability",
+										"43"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/exam-calenders/19",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"exam-calenders",
+										"19"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"exam_id\": 1,\n    \"description\": \"ascasc\",\n    \"repeat_start_date\": \"2020-07-01\",\n    \"repeat_end_date\": \"2020-07-30\",\n    \"schedule_type\": \"once\",\n    \"monday\": 1,\n    \"tuesday\": 1,\n    \"wednesday\": 1,\n    \"thursday\": 1,\n    \"friday\": 1,\n    \"saturday\": 1,\n    \"sunday\": 1,\n    \"examSlots\": [\n        {\n            \"exam_id\": 1,\n            \"start_time\": \"05:00\",\n            \"end_time\": \"06:00\",\n            \"seats\": 10,\n            \"available_seats\": 10\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/exam-calenders",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"exam-calenders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"exam_id\": 1,\n    \"description\": \"ascasc\",\n    \"repeat_start_date\": \"2020-07-01\",\n    \"repeat_end_date\": \"2020-07-30\",\n    \"schedule_type\": \"once\",\n    \"monday\": 1,\n    \"tuesday\": 1,\n    \"wednesday\": 1,\n    \"thursday\": 1,\n    \"friday\": 1,\n    \"saturday\": 1,\n    \"sunday\": 1,\n    \"examSlots\": [\n        {\n            \"exam_id\": 1,\n            \"start_time\": \"05:00\",\n            \"end_time\": \"06:00\",\n            \"seats\": 10,\n            \"available_seats\": 10\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/exam-calenders/19",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"exam-calenders",
+										"19"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ExamCalenderSeat",
+					"item": [
+						{
+							"name": "Store",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "exam_calender_id",
+											"value": "14",
+											"type": "text"
+										},
+										{
+											"key": "exam_slot_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "date",
+											"value": "2020-06-20",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/exam-calender-seats",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"exam-calender-seats"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/orders",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/orders/6",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"orders",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Browser Activity",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "By Session",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/browser-activities/igaDMV7TofRZx3t4E5OC",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"browser-activities",
+										"igaDMV7TofRZx3t4E5OC"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "4",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Custom Field",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/custom-fields",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"custom-fields"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/custom-fields/1",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"custom-fields",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ai Live",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/ai-lives",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"ai-lives"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/ai-lives/MdjNRiRVm1NZOUevPh0W",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"ai-lives",
+										"MdjNRiRVm1NZOUevPh0W"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "3",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "OAuth",
+					"item": [
+						{
+							"name": "My Clients",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/oauth/my-clients",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"oauth",
+										"my-clients"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/oauth/clients",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"oauth",
+										"clients"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Session Incident",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/session-incidents?offset=330&daterange[]=2021-08-01&daterange[]=2021-08-05",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"session-incidents"
+									],
+									"query": [
+										{
+											"key": "student_id",
+											"value": "3",
+											"disabled": true
+										},
+										{
+											"key": "exam_id",
+											"value": "49",
+											"disabled": true
+										},
+										{
+											"key": "session_id",
+											"value": "24",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "330"
+										},
+										{
+											"key": "daterange[]",
+											"value": "2021-08-01"
+										},
+										{
+											"key": "daterange[]",
+											"value": "2021-08-05"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/session-incidents/9",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"session-incidents",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Session Incident Stats",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/session-incident-stats?daterange[]=2020-01-01&daterange[]=2021-08-25",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"session-incident-stats"
+									],
+									"query": [
+										{
+											"key": "daterange[]",
+											"value": "2020-01-01"
+										},
+										{
+											"key": "daterange[]",
+											"value": "2021-08-25"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "AiAudioLabel",
+					"item": [
+						{
+							"name": "Get Audio Labels",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/organisations/1/ai-audio-lives/:id",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"organisations",
+										"1",
+										"ai-audio-lives",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "MdjNRiRVm1NZOUevPh0W"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Decode Json",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "url",
+											"value": "https://proctor360.s3.amazonaws.com/audio/transcribe/transcribe+json/MdjNRiRVm1NZOUevPh0W-1645270478859.json",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{Base URL}}/decode-audio-json",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"decode-audio-json"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/organisations/1",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"organisations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/organisations",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"organisations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ABC pvt ltd",
+									"type": "text"
+								},
+								{
+									"key": "support_email",
+									"value": "test@test.co",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "preferences",
+									"value": "[1]",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "reschedule",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base Url}}/organisations/1",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"organisations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exam",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base Url}}/organisations/1/exams?exam_name=test exam",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"organisations",
+								"1",
+								"exams"
+							],
+							"query": [
+								{
+									"key": "exam_name",
+									"value": "test exam"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/exams/11",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"exams",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "featured_image",
+									"type": "file",
+									"src": "/C:/Users/smsug/Downloads/field-forest-grass-33710.jpg"
+								},
+								{
+									"key": "organisation_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/exams",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"exams"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exam Calender",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/exam-calenders",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"exam-calenders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/exam-calenders/1",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"exam-calenders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/exam-calenders/1",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"exam-calenders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Secure Browsing",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/secure-browsings",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"secure-browsings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/students",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student Session",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base Url}}/organisations/1/sessions?type=upcoming",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"organisations",
+								"1",
+								"sessions"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "upcoming"
+								},
+								{
+									"key": "can_paginate",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "Pacific/Wake",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base Url}}/organisations/79/sessions/0dbPOCuDX4b3Nd4OSCF2",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"organisations",
+								"79",
+								"sessions",
+								"0dbPOCuDX4b3Nd4OSCF2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "organisation_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "student_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "exam_id",
+									"value": "38",
+									"type": "text"
+								},
+								{
+									"key": "exam_date_time",
+									"value": "2019-08-12 17:50:00",
+									"type": "text"
+								},
+								{
+									"key": "exam_duration",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "can_upload_attachment",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "web_camera",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "fullview_camera",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "screenshare",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "fullview_camera",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "second_id_card",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "not started",
+									"type": "text"
+								},
+								{
+									"key": "live_proctoring",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "exam_link",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "exam_link_iframe",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base Url}}/organisations/79/sessions",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"organisations",
+								"79",
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"exam_date_time\":\"2023-12-02 15:45:23\",\r\n    \"proctor_id\":[2,3],\r\n    \"exam_link\":\"test2\",\r\n    \"exam_link_iframe\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base Url}}/organisations/79/sessions/JJ42qjIV4KZ7bAyRmGn1",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"organisations",
+								"79",
+								"sessions",
+								"JJ42qjIV4KZ7bAyRmGn1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCheck",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/update-check/MdjNRiRVm1NZOUevPh0W",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"update-check",
+								"MdjNRiRVm1NZOUevPh0W"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Volumes/MyDisk/Work/My Projects/Proctor360/Contents/Bulk-upload-sample.xlsx"
+								},
+								{
+									"key": "",
+									"value": "2020-05-19 07:01:00",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "\"2020-05-19T12:31:00.000Z\"",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/organisations/1/bulk-sessions",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"organisations",
+								"1",
+								"bulk-sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "External Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"exam_id\": 3, \n    \"student_email\": \"smk.indian+3@gmail.com\", \n    \"exam_date_time\": \"2020-06-20 12:30:00\", \n    \"timezone\": \"Asia/Kolkata\", \n    \"first_name\": \"Mohan\", \n    \"last_name\": \"Last\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base URL}}/organisations/1/ext-sessions",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"organisations",
+								"1",
+								"ext-sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateSessionApproval",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"face_photo\":\"rejected\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base Url}}/organisations/79/update-session-approval/jMQmCF7sMGvt2a2jzy9x",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"organisations",
+								"79",
+								"update-session-approval",
+								"jMQmCF7sMGvt2a2jzy9x"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student Session Proof",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Demo",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/demos",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"demos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/demos",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"demos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_photo_image",
+									"type": "file",
+									"src": "/C:/Users/smsug/Downloads/3316Simple_double_storey_elevation_L.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/demos/3",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"demos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/roles",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat Session",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/chat-sessions",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"chat-sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/chat-sessions/7",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"chat-sessions",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "message",
+									"value": "Hey",
+									"type": "text"
+								},
+								{
+									"key": "student_session_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/chat-sessions/7/addmessage",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"chat-sessions",
+								"7",
+								"addmessage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "student_session_id",
+									"value": "108",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/chat-sessions",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"chat-sessions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Paypal Client Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cart",
+									"value": "1YM47411GW217641P",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/capture-paypal-transaction",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"capture-paypal-transaction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Session Incident",
+			"item": [
+				{
+					"name": "Session Incident Reason",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/session-incident-reasons",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"session-incident-reasons"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "student_session_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "session_incident_reason_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "notes",
+									"value": "csascasc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/session-incidents",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"session-incidents"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/tests",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"tests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Merge",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/merge",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"merge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "featured_video",
+									"type": "file",
+									"src": "/C:/Users/smsug/Downloads/tyler-lastovich-ddLiNMqWAOM-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base URL}}/test-video-upload",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"test-video-upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getstream",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/getstream",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"getstream"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/upload",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"test15@gmail.com\",\r\n    \"role_id\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base Url}}/users",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "smk.indian+546@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Test@123",
+									"type": "text"
+								},
+								{
+									"key": "user_name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "organisation_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "role_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base Url}}/add-user",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"add-user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ai Videos",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/ai-videos",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"ai-videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/ai-videos/MdjNRiRVm1NZOUevPh0W",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"ai-videos",
+								"MdjNRiRVm1NZOUevPh0W"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"bucket_name\": \"proctor360\",\n   \"file_name\": \"video/webcam-MdjNRiRVm1NZOUevPh0W-1595865897603.webm\",\n   \"session_link\": \"MdjNRiRVm1NZOUevPh0W\",\n   \"labels\": [\n      {\n         \"label\": \"tablet\",\n         \"timestamp\": \"0:6:41\",\n         \"confidence\": \"84.34\"\n      },\n      {\n         \"label\": \"multiple people\",\n         \"timestamp\": \"0:10:2\",\n         \"confidence\": \"74.34\"\n      }\n   ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base URL}}/ai-videos",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"ai-videos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Custom Field",
+			"item": [
+				{
+					"name": "Custom Field Types",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/custom-field-types",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"custom-field-types"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Custom Field Rules",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Base URL}}/custom-field-rules",
+									"host": [
+										"{{Base URL}}"
+									],
+									"path": [
+										"custom-field-rules"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/custom-fields",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"custom-fields"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Timezone",
+			"item": [
+				{
+					"name": "Timezones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/timezones",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"timezones"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Language",
+			"item": [
+				{
+					"name": "All Language",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/alllanguages",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"alllanguages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Script",
+			"item": [
+				{
+					"name": "endSessions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sessionIds\": [\n34274,\n33992,\n33991,\n33983,\n33811\n]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base URL}}/script/end-sessions",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"script",
+								"end-sessions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Canvas",
+			"item": [
+				{
+					"name": "accounts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "7~texhMBMgacHqsvN1s7oqS0uh9RrBsiKYdAQvVhwWwtSrFVu5hkvwBum5kmH5wUKp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://canvas.instructure.com/api/v1/courses",
+							"protocol": "https",
+							"host": [
+								"canvas",
+								"instructure",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list all quizzes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "7~texhMBMgacHqsvN1s7oqS0uh9RrBsiKYdAQvVhwWwtSrFVu5hkvwBum5kmH5wUKp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://canvas.instructure.com/api/v1/courses/2544988/quizzes?page=2",
+							"protocol": "https",
+							"host": [
+								"canvas",
+								"instructure",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"2544988",
+								"quizzes"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "7~texhMBMgacHqsvN1s7oqS0uh9RrBsiKYdAQvVhwWwtSrFVu5hkvwBum5kmH5wUKp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"General\",\r\n    \"course_code\":\"INSTCON12\",\r\n    \"start_at\": \"2023-10-31T01:00Z \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://canvas.instructure.com/api/v1/accounts/2544988/courses",
+							"protocol": "https",
+							"host": [
+								"canvas",
+								"instructure",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								"2544988",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list students",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "7~texhMBMgacHqsvN1s7oqS0uh9RrBsiKYdAQvVhwWwtSrFVu5hkvwBum5kmH5wUKp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://canvas.instructure.com/api/v1/courses/2544988/students",
+							"protocol": "https",
+							"host": [
+								"canvas",
+								"instructure",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"2544988",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "7~texhMBMgacHqsvN1s7oqS0uh9RrBsiKYdAQvVhwWwtSrFVu5hkvwBum5kmH5wUKp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"test\",\r\n    \"description\":\"test for quiz\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://canvas.instructure.com/api/v1/courses/7999962/quizzes",
+							"protocol": "https",
+							"host": [
+								"canvas",
+								"instructure",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"7999962",
+								"quizzes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "canvasQuizzes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"course_id\":\"2544988\",\r\n    \"quiz_id\":\"12983049\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base Url}}/organisations/1/canvas",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"organisations",
+								"1",
+								"canvas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organisation Setting",
+			"item": [
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "canvas_url",
+									"value": "https://canvas.instructure.com/",
+									"type": "text"
+								},
+								{
+									"key": "canvas_token",
+									"value": "7~texhMBMgacHqsvN1s7oqS0uh9RrBsiKYdAQvVhwWwtSrFVu5hkvwBum5kmH5wUKp",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/C:/Users/Mohan/Downloads/image.png"
+								},
+								{
+									"key": "reschedule",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base Url}}/organisations/1",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"organisations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Integration",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base Url}}/organisations/1/integrations",
+							"host": [
+								"{{Base Url}}"
+							],
+							"path": [
+								"organisations",
+								"1",
+								"integrations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scorpion Caveon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reminders for exam",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{Base Url}}/organisations/1/reminders-exams",
+					"host": [
+						"{{Base Url}}"
+					],
+					"path": [
+						"organisations",
+						"1",
+						"reminders-exams"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
